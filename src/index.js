@@ -18,12 +18,13 @@ class HelloWorld extends React.Component {
 	   super();
 	   this.changStatus=this.changStatus.bind(this);
 	   this.updateTask=this.updateTask.bind(this);
+	   this.addTask=this.addTask.bind(this);
 	   this.state= {
             Task :[
             {
             	name:"Buy Milllk",
             	completed :false
-            },
+            }, 
             {
             	name:"Buy Vegitable",
             	completed :false
@@ -50,8 +51,14 @@ class HelloWorld extends React.Component {
 		   Task:tasks
 	   })
    }
+   addTask(){
 
-   updateTask(){
+   }
+
+   updateTask(newvalue){
+	   this.setState({
+		   currentState:newvalue
+	   })
 
    }
 

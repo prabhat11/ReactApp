@@ -2,7 +2,9 @@ import React from 'react';
 
 const ToDoForm = () => {
     return (
-       <h1> To do Form </h1>
+       <form>
+         <input type="text" value={props.currentState} onChange={props.updateTask}/>
+       </form>
     )
 }
 
