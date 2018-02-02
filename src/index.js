@@ -11,9 +11,11 @@
 
        componewillmount(){
            $.ajax({
-               
+
            })
        }
+       componewillmount
+
       render(){
              return(
             <section>
@@ -24,7 +26,7 @@
     }
     ReactDom.render(<App>
         <div>
-           <h1> This is firs child!  </h1>
+           <h1> This is first child!  </h1>
            <h2> This is second child </h2>
         </div>
          </App>,document.getElementById('root') )
