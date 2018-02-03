@@ -1,6 +1,5 @@
 import React from 'react';
-
-const ToDoForm = () => {
+const ToDoForm = (props) => {
     return (
        <form>
          <input type="text" value={props.currentState} onChange={props.updateTask}/>
