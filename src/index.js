@@ -1,32 +1,43 @@
-    import  React, {Component} from 'react';
-    import ReactDom  from 'react-dom';
+import React ,{Component} from 'react';
+import ReactDom from 'react-dom';
 
-   class App extends Component{
-       constructor(props){
-           super()
-           this.setState ={
-               content:[]
-           }
-       }
+class ToDoList extends Component{
+    constructor(){
+        super()
+        this.changeStatus=this.changeStatus.bind(this);
+        this.state ={
+            tasks:[{
+                name:"Reading",
+                completed:"false"
+            },
+            {
+                name:"Buy fruits",
+                completed:"false"
+            },
+            {
+                name:"Buy Vegitable",
+                completed:"false"
+            }
 
-       componewillmount(){
-           $.ajax({
-
-           })
-       }
-       componewillmount
-
-      render(){
-             return(
-            <section>
-                <h1> Hello Prabhat !</h1> 
-                {React.Children.only(this.props.children)}
-             </section>
-    )}
+            ]
+        }
     }
-    ReactDom.render(<App>
-        <div>
-           <h1> This is first child!  </h1>
-           <h2> This is second child </h2>
-        </div>
-         </App>,document.getElementById('root') )
+  changeStatus(index){
+    console.log(this.state.tasks[index]);
+  }
+        render(){
+            return(
+               <ul>{
+               this.state.tasks.map((task,index)=>{
+                  return <Todoitem  key={task.name}item={task} index={index} clickHandler={this.changeStatus} />
+                })
+                } </ul>
+            )
+        }
+}
+    const Todoitem = (function(props){
+      return  <li onClick={ ()=>{props.clickHandler(props.index)}}>
+          {props.item.name}
+          </li>
+    })
+    ReactDom.render(<ToDoList/>,document.getElementById('root'))
