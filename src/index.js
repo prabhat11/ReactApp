@@ -23,7 +23,13 @@ class ToDoList extends Component{
         }
     }
   changeStatus(index){
-    console.log(this.state.tasks[index]);
+   // console.log(this.state.tasks[index]);
+   var tasks=this.state.tasks;
+   var task=tasks[index];
+   var completed =!task.completed;
+   this.setState({
+       tasks:tasks
+   });
   }
         render(){
             return(
