@@ -6,8 +6,8 @@ class HelloWorld extends React.Component {
    constructor(props){
 	   super(props);
 	   this.changStatus=this.changStatus.bind(this);
-	   /* this.updateTask=this.updateTask.bind(this);
-	   this.addTask=this.addTask.bind(this); */
+       this.updateTask=this.updateTask.bind(this);
+	   this.addTask=this.addTask.bind(this);
 	   this.state= {
             Tasks :[
             {
@@ -27,20 +27,18 @@ class HelloWorld extends React.Component {
             	completed :false
             }
 			],
-			//currentState:''
+			currentState:''
 		}
    }
    changStatus(index){
 	   var tasks=this.state.Tasks;
 	   var task=tasks[index];
-	   /* this.setState({
-		   currentState:task.name
-	   }) */
-	   console.log(task)
-   }
+	   console.log(task.name)
+	   }
+  
    addTask(){
 
-   }
+   } 
    updateTask(evt){
 	   this.setState({
 		   currentState:evt.target.value
@@ -49,7 +47,7 @@ class HelloWorld extends React.Component {
 	render (){
 		return (
 			<section>
-				<ToDoForm/>
+				<ToDoForm   updatestate={this.updateTask}/>
 			<ul>
 			{
 			this.state.Tasks.map((singleTask,index) =>{
