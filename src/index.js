@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import ToDoItem from './components/ToDoItem.js';
 import ToDoForm from './components/ToDoForm.js';
 class HelloWorld extends React.Component {
-   constructor(){
-	   super();
+   constructor(props){
+	   super(props);
 	   this.changStatus=this.changStatus.bind(this);
-	   this.updateTask=this.updateTask.bind(this);
-	   this.addTask=this.addTask.bind(this);
+	   /* this.updateTask=this.updateTask.bind(this);
+	   this.addTask=this.addTask.bind(this); */
 	   this.state= {
-            Task :[
+            Tasks :[
             {
             	name:"Buy Milllk",
             	completed :false
@@ -27,22 +27,23 @@ class HelloWorld extends React.Component {
             	completed :false
             }
 			],
-			currentState:''
+			//currentState:''
 		}
    }
    changStatus(index){
-	   var tasks=this.state.Task;
+	   var tasks=this.state.Tasks;
 	   var task=tasks[index];
-	   this.setState({
-		   Task:task
-	   })
+	   /* this.setState({
+		   currentState:task.name
+	   }) */
+	   console.log(task)
    }
    addTask(){
 
    }
    updateTask(evt){
 	   this.setState({
-		   currentState:this.target.value
+		   currentState:evt.target.value
 	   })
    }
 	render (){
@@ -51,8 +52,11 @@ class HelloWorld extends React.Component {
 				<ToDoForm/>
 			<ul>
 			{
-			this.state.Task.map((Task,index) =>{
-			 return <ToDoItem changeHander={this.changStatus} index={index} key={Task.name} details={Task}/>
+			this.state.Tasks.map((singleTask,index) =>{
+			 return <ToDoItem changeHander={this.changStatus} 
+			 index={index} 
+			 key={singleTask.name} 
+			 details={singleTask}/>
 			}
 			)
 			}

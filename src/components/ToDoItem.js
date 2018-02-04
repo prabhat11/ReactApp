@@ -1,11 +1,11 @@
 import React from 'react';
-const ToDoItem = (props) => {
-    return (
-     <li onClick={()=>{props.changeHander(props.index);
+const ToDoItem = ((props)=>{
+    return 
+     <li onClick={(props)=>{props.changeHander(props.index);
 			  }}
  			  >
  		  {props.details.name}
- 		  </li>
-    )
-   }
+            </li>  
+    
+   })
 export default ToDoItem;
