@@ -47,7 +47,8 @@ class HelloWorld extends React.Component {
 	render (){
 		return (
 			<section>
-				<ToDoForm   updatestate={this.updateTask}/>
+				<ToDoForm   updatestate={this.updateTask}
+				  addTask={this.addTask}/>
 			<ul>
 			{
 			this.state.Tasks.map((singleTask,index) =>{
